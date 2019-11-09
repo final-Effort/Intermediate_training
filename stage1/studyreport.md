@@ -2,13 +2,13 @@
 ---
 
 ## vi/vim编辑器的使用
- 1. 概念
-  - vi(Visual Interface)是Unix及Linux系统下标准的文本编辑器
-  - vim(vi iMprove)是vi的升级版
+  1. 概念
+   - vi(Visual Interface)是Unix及Linux系统下标准的文本编辑器
+   - vim(vi iMprove)是vi的升级版
  2. 使用vim打开文件：
      - $vim path :vim后面接文件路径及文件名，如果文件存在，则打开编辑文件窗口，如果文件不存在，则创建文件。  
     `$vim /ts/test`
-在ts文件下打开test文本或创建test文本。  
+ 在ts文件下打开test文本或创建test文本。  
 
      - $vim +# path :打开文件并定位到第#行，若#不输入，则定位到最后一行。  
      `$vim +2 /ts/test`  
@@ -94,7 +94,7 @@
      - ?pattern：从当前位置向前查找“pattern”
      - w：表示保存当前文件
      - w /path/to/somewhere：将当前文件另存为到路径指定的地方
-     - r： /path/to/somefile  例如：vim /ts/rc.sysinit 打开文件后，末行模式 输入 :r /ts/test ：会将 test文件的所有内容附加到rc.sysinit文件光标所在的位置
+     - r： /path/to/somefile  例如：vim /ts/rc.sysinit 打开文件后，末行模式 输入 :r /ts/test ：会将 test文件的所有内容附加到rc.sysinit文件光标  所在的位置
      - (vim FILE1 FILE2 FILE3)(vim打开多个文件）：
          - :next 切换到下一个文件
          - :prev 切换到上一个文件
@@ -103,3 +103,21 @@
          - qa:全部退出
 
 ---
+
+## jdk环境与java语言
+ 1. $ java -version :查看当前安装的java版本
+ 2. 编译命令：$ javac [-d] [-o] [-verbose] [-classpath] [-sourcepath]
+     - -d,指定生成的.class文件存放目录，省略则默认放在java源文件的同一目录下
+     - -o,告诉javac优化内联的static，finall以及privite成员函数所产生的码。
+     - -verbose，告知java显示出有关被编译的源文件和任何被调用类库的信息。
+     - -classpath，设定要用到的类路径，可以是目录，jar文件，zip文件（里面都是class文件）。也可以省略，省略则默认使用环境变量$CLASSPATH路径。
+     - sourcepath,设定要编译的java文件路径，可以是目录，jar文件，zip文件（里面都是java文件）。  
+    `$ javac hello_world.java`  
+    编译hello_world.java文件,在同一目录下生成可执行文件hello_world。
+
+ 3. 运行命令：$ java [-classpath] [-sourcepath] 
+    - classpath同编译时的类路径
+    - sourcepath指要运行的目标1文件名，不需要添加后缀。  
+    `$ java hello_world`  
+    运行由上编译成的可执行文件。
+
