@@ -120,4 +120,54 @@
     - sourcepath指要运行的目标1文件名，不需要添加后缀。  
     `$ java hello_world`  
     运行由上编译成的可执行文件。
-
+ 4. Java基础知识与C++有大同小异之处。
+ 5. import package_name 导入包，本次小程序主要为GUI组件部分设计，需要使用到的包有AWT(Abstract Window Toolkit)和Swing(AWT包的升级版);  
+    `import java.awt.*`  
+    `import javax.swing.*`  
+ 6.  - `public class CalculatorDemo extends JFrame`    
+    通过继承JFrame类来添加窗口  
+     - `JButton sub = new JButton("-")`   
+    添加减号按钮
+     - `JLabel leftnum = new JLabel("12",JLabel.CENTER);`  
+    添加显示框数字“12”，并使文本居中
+     - `JTextField result = new JTextField();`  
+    添加文本框，用来输出结果。
+     - `result.setHorizontalAlignment(JTextField.CENTER);`   
+    使输出框文本居中。
+     - `final Font font = new Font("宋体", Font.BOLD, 21);`  
+    添加文字style（宋体，粗体，21号大小）
+     - `add1.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				opera.setText("+");
+				result.setText("?");
+				index = 1;
+			}
+		});`   
+    为按钮添加事件，监听。
+    结合，生成小程序。 4. Java基础知识与C++有大同小异之处。
+ 5. import package_name 导入包，本次小程序主要为GUI组件部分设计，需要使用到的包有AWT(Abstract Window Toolkit)和Swing(AWT包的升级版);  
+    `import java.awt.*`  
+    `import javax.swing.*`  
+ 6.  - `public class CalculatorDemo extends JFrame`    
+    通过继承JFrame类来添加窗口  
+     - `JButton sub = new JButton("-")`   
+    添加减号按钮
+     - `JLabel leftnum = new JLabel("12",JLabel.CENTER);`  
+    添加显示框数字“12”，并使文本居中
+     - `JTextField result = new JTextField();`  
+    添加文本框，用来输出结果。
+     - `result.setHorizontalAlignment(JTextField.CENTER);`   
+    使输出框文本居中。
+     - `final Font font = new Font("宋体", Font.BOLD, 21);`  
+    添加文字style（宋体，粗体，21号大小）
+     - `add1.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e){
+				opera.setText("+");
+				result.setText("?");
+				index = 1;
+			}
+		});`   
+    为按钮添加事件，监听。
+    结合，生成小程序。
