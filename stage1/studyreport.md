@@ -214,3 +214,31 @@ all:
     Total time: 0 seconds
      - 执行 `$ java -jar HelloWorld.jar hello_world` 时会报错： "no main mainfest attribute， in HellowWorld.jar"   
     应使用`$ java -cp HelloWorld.jar hello_world` 来运行指定想要运行的类，因为java打包成jar包需要在MANIFEST.MF中指定Main.Class项以便运行 `$ java -jar XXX.jar` 时找到对应的主类
+
+---
+## Junit环境配置和使用
+ 1. Junit环境配置
+     - 从百度网页上下载Junit包
+     - `$ gedit ~/.bashrc`    
+        配置Junit环境变量：
+    #set Junit environment  
+        export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_91
+    export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:/home/administrator/Downloads/junit-4.9.jar:$CLASSPATH
+    export PATH=$JAVA_HOME/bin:$JAVA_HOME/jre/bin:$PATH:$HOME/bin 
+     - `$ soure ~/.bashrc`  
+        使修改立即生效。
+
+ 2. Junit使用
+     - 为了方便测试，在原有的hello_world.java中添加一些函数以便测试。
+     - 创建hello_worldTest.java文件。
+     - $`javac hello_worldTest.java hello_world.java` 
+     - `$ java -ea org.junit.runner.JUnitCore hello_worldTest`  
+     -  出现如下结果则表示运行成功：
+        JUnit version 4.9
+        Time：0.005
+        OK（1test）
+
+ 3. PS
+     - 添加Junit环境变量真是令人头疼，一不小心改错了，让很多指令都变成了`command not found`  
+     - 使用/bin/ls和/bin/cd找到隐藏文件.bashrc改回去最终才恢复正常。  
+     - 环境配置单词容易打错。
