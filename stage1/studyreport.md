@@ -171,3 +171,46 @@
 		});`   
     为按钮添加事件，监听。
     结合，生成小程序。
+    
+  ---
+
+## ANT环境配置及使用
+
+1. ANT环境配置
+     - 在[ant官网](http://ant.apache.org/bindownload.cgi)上下载apache-ant-1.9.14
+     - 手动解压
+     - 将apache-ant-1.9.14文件置于~/Desktop上
+     - 设置环境变量：   
+          `gedit ~/.bashrc`  
+        在.bashrc中添加    
+        `#set Ant environment`   
+        `export ANT_HOME=~/Desktop/apache-ant-1.9.14`   
+        `export PATH=${ANT_HOME}/bin:$PATH`  
+     - 使修改立即生效  
+        `source ~/.bashrc`  
+     - 测试  
+    `ant`  
+    若显示Buildfile:build xml does not exist! Build failed,则ant配置成功  
+     - PS:使用 `vi /etc/profile` 似乎权限不够，只能以只读打开profile  
+
+ 2. ANT使用
+     - 将java文件置于src文件下。
+     - 在该project下建立一个build.xml文件
+     - 然后利用ant编译。  
+        `$ ant all`  
+        将会出现信息：
+    Buildfile: /home/administrator/Desktop/build.xml
+init:
+    [mkdir] Created dir: /home/administrator/Desktop/classes  
+    [mkdir] Created dir: /home/administrator/Desktop/classes  
+compile:
+    [javac] /home/administrator/Desktop/build.xml:25: warning: 'includeantruntime' was not
+set, defaulting to build.sysclasspath=last; set to false for repeatable builds
+    [javac] Compiling 1 source file to /home/administrator/Desktop/classes  
+jar:    
+      [jar] Building jar:   /home/administrator/Desktop/Hello_World.jar
+all:  
+    BUILD SUCCESSFUL  
+    Total time: 0 seconds
+     - 执行 `$ java -jar HelloWorld.jar hello_world` 时会报错： "no main mainfest attribute， in HellowWorld.jar"   
+    应使用`$ java -cp HelloWorld.jar hello_world` 来运行指定想要运行的类，因为java打包成jar包需要在MANIFEST.MF中指定Main.Class项以便运行 `$ java -jar XXX.jar` 时找到对应的主类
